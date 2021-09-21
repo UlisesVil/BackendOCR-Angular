@@ -2,18 +2,22 @@
 
 var mongoose= require('mongoose');
 var app=require('./app');
-var PORT= 3700;
+var PORT= process.env.PORT || 3700;
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect("mongodb://localhost:27017/OCRAngular")
-    .then(()=>{
+mongoose.connect(process.env.DB_CONNECT,{
+        useFindAndModify: false,
+        useCreateIndex: true,
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
+    }).then(()=>{
         console.log('----Data Base Connection Successfull established----');
 
         app.listen(PORT,()=>{
-            console.log('----Server Running on port 3700----');
+            console.log("----Server Running on port: "+PORT+"----");
         });
-    }).catch(err=>console.log(err));
-
-
-
+    }).catch(
+        err=>console.log(err)
+    )
+;
