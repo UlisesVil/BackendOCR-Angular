@@ -14,6 +14,7 @@ router.post('/save-OcrImageData', ocrImagesController.saveOcrImage);
 router.post('/get-imagesdata', ocrImagesController.getImagesData);
 router.post('/upload-image/:id', multipartMiddleware, ocrImagesController.uploadImage);
 router.get('/getOcrImage/:image', ocrImagesController.getOcrImage);
+router.delete('/deleteOcrImage/:imageId', ocrImagesController.deleteOcrImage);
 
 
 module.exports = router;

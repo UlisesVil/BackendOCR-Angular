@@ -19,7 +19,11 @@ var OcrImageSchema= Schema({
     documentType:{
         type: String,
         required: true
-    }    
+    },
+    dateUploaded:{
+        type: Date,
+        default: Date.now()
+    }
 });
 
 module.exports = mongoose.model('OcrImage', OcrImageSchema);

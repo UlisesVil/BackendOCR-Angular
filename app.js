@@ -81,16 +81,4 @@ app.get('/', (req,res)=>{
     )
 });
 
-/*app.post('/test:id',(req,res)=>{
-    //console.log(req.query);
-    console.log(req.body);
-    //console.log(req.params);
-
-    res.status(200).send(
-        {
-            message:'Datos recibidos'
-        }
-    );
-});*/
-
 module.exports = app;
