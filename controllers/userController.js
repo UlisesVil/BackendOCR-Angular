@@ -3,7 +3,7 @@
 const userModel = require('../models/userModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const CONFIG = require('../config/config');
+//const CONFIG = require('../config/config');
 
 var controller={
 
@@ -28,7 +28,7 @@ var controller={
                                 lastName:userBD.lastName,
                                 email:userBD.email
                             }
-                            jwt.sign(payload,CONFIG.SECRET_TOKEN, (error,token)=>{
+                            jwt.sign(payload,process.env.SECRET_TOKEN, (error,token)=>{//CONFIG.SECRET_TOKEN
                                 if(error){
                                     res.status(500).send(error);
                                 }else{
